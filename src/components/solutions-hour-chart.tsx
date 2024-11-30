@@ -30,7 +30,7 @@ const chartConfig = {
   },
 } satisfies ChartConfig;
 
-export default function SolutionsHourChart() {
+export function SolutionsHourChart() {
   const [range] = useQueryState("range");
 
   const { data, isLoading } = useGetQubicLIStatsQuery({ range });

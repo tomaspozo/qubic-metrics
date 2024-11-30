@@ -30,7 +30,7 @@ const chartConfig = {
   },
 } satisfies ChartConfig;
 
-export default function ScoresHistoryCharts() {
+export function ScoresHistoryCharts() {
   const [range] = useQueryState("range");
 
   const { data = [], isLoading } = useGetQubicLIStatsQuery({

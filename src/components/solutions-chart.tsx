@@ -26,7 +26,7 @@ const chartConfig = {
   },
 } satisfies ChartConfig;
 
-export default function SolutionsChart() {
+export function SolutionsChart() {
   const [range] = useQueryState("range");
 
   const { data, isLoading } = useGetQubicLIScoresHistoryQuery({
