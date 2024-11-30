@@ -1,4 +1,3 @@
-import * as React from "react";
 import { Area, CartesianGrid, ComposedChart, XAxis, YAxis } from "recharts";
 
 import {
@@ -16,15 +15,9 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 
 import { useGetQubicStatsQuery } from "@/api/client";
+import { useQueryState } from "nuqs";
 
 const chartConfig = {
   marketCap: {
@@ -37,52 +30,12 @@ const chartConfig = {
   },
 } satisfies ChartConfig;
 
-function formatDate(date: Date) {
-  return date.toLocaleDateString("en-US", {
-    month: "short",
-    day: "numeric",
-    year: "numeric",
-  });
-}
-
-const options = [
-  {
-    label: "7D",
-    date: `${formatDate(
-      new Date(new Date().setDate(new Date().getDate() - 7))
-    )} – Today `,
-  },
-  {
-    label: "30D",
-    date: `${formatDate(
-      new Date(new Date().setDate(new Date().getDate() - 30))
-    )} – Today`,
-  },
-  {
-    label: "3M",
-    date: `${formatDate(
-      new Date(new Date().setMonth(new Date().getMonth() - 3))
-    )} – Today`,
-  },
-  {
-    label: "1Y",
-    date: `${formatDate(
-      new Date(new Date().setMonth(new Date().getMonth() - 12))
-    )} – Today`,
-  },
-  {
-    label: "ALL",
-    date: `All time`,
-  },
-];
-
 export function HistoryChart() {
-  const [timeRange, setTimeRange] = React.useState("ALL");
-
-  const { data = [], isLoading } = useGetQubicStatsQuery(timeRange);
+  const [range] = useQueryState("range");
+  const { data = [], isLoading } = useGetQubicStatsQuery(range);
 
   return (
-    <Card>
+    <Card className="w-full">
       <CardHeader className="flex items-center gap-2 space-y-0 border-b py-5 sm:flex-row">
         <div className="grid flex-1 gap-1 text-center sm:text-left">
           <CardTitle>Market Cap</CardTitle>
@@ -90,25 +43,6 @@ export function HistoryChart() {
             Qubic market cap evolution over time
           </CardDescription>
         </div>
-        <Select value={timeRange} onValueChange={setTimeRange}>
-          <SelectTrigger
-            className="w-[160px] rounded-lg sm:ml-auto"
-            aria-label="Select a value"
-          >
-            <SelectValue placeholder="Last 3 months" />
-          </SelectTrigger>
-          <SelectContent className="rounded-xl">
-            {options.map((option) => (
-              <SelectItem
-                key={option.label}
-                value={option.label}
-                className="rounded-lg"
-              >
-                {option.label}
-              </SelectItem>
-            ))}
-          </SelectContent>
-        </Select>
       </CardHeader>
       <CardContent className="px-2 pt-4 sm:px-6 sm:pt-6">
         {isLoading && (
