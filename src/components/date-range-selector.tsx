@@ -1,5 +1,6 @@
 import { parseAsStringEnum, useQueryState } from "nuqs";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./ui/select";
+
+import { Tabs, TabsList, TabsTrigger } from "./ui/tabs";
 
 function formatDate(date: Date) {
   return date.toLocaleDateString("en-US", {
@@ -47,26 +48,14 @@ export function DateRangeSelector() {
   );
 
   return (
-    <div className="flex items-center gap-2">
-      <Select value={range} onValueChange={setRange}>
-        <SelectTrigger
-          className="w-[160px] rounded-lg sm:ml-auto"
-          aria-label="Select a value"
-        >
-          <SelectValue placeholder="Select an option" />
-        </SelectTrigger>
-        <SelectContent className="rounded-xl">
-          {options.map((option) => (
-            <SelectItem
-              key={option.label}
-              value={option.label}
-              className="rounded-lg"
-            >
-              {option.label}
-            </SelectItem>
-          ))}
-        </SelectContent>
-      </Select>
-    </div>
+    <Tabs value={range} onValueChange={setRange}>
+      <TabsList>
+        {options.map((option) => (
+          <TabsTrigger key={option.label} value={option.label}>
+            {option.label}
+          </TabsTrigger>
+        ))}
+      </TabsList>
+    </Tabs>
   );
 }
