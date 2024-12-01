@@ -1,4 +1,3 @@
-import { useQueryState } from "nuqs";
 import { Area, CartesianGrid, ComposedChart, XAxis, YAxis } from "recharts";
 
 import {
@@ -18,6 +17,7 @@ import {
 } from "@/components/ui/chart";
 
 import { useGetQubicLIStatsQuery } from "@/api/client";
+import { useDateRange } from "@/hooks/use-date-range";
 
 const chartConfig = {
   averageScore: {
@@ -31,7 +31,7 @@ const chartConfig = {
 } satisfies ChartConfig;
 
 export function ScoresHistoryCharts() {
-  const [range] = useQueryState("range");
+  const [range] = useDateRange();
 
   const { data = [], isLoading } = useGetQubicLIStatsQuery({
     range,

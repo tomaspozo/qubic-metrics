@@ -17,7 +17,7 @@ import {
 } from "@/components/ui/chart";
 
 import { useGetQubicStatsQuery } from "@/api/client";
-import { useQueryState } from "nuqs";
+import { useDateRange } from "@/hooks/use-date-range";
 
 const chartConfig = {
   marketCap: {
@@ -31,7 +31,7 @@ const chartConfig = {
 } satisfies ChartConfig;
 
 export function HistoryChart() {
-  const [range] = useQueryState("range");
+  const [range] = useDateRange();
   const { data = [], isLoading } = useGetQubicStatsQuery(range);
 
   return (
