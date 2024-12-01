@@ -1,7 +1,11 @@
+import { OpenSourceStats } from "@/components/open-source-stats";
+// import { DateRangeSelector } from "@/components/date-range-selector";
+
 export default function OpenSource() {
   return (
-    <div>
-      <h1>Open Source</h1>
-    </div>
+    <>
+      <OpenSourceStats />
+      {/* <DateRangeSelector /> */}
+    </>
   );
 }
