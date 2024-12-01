@@ -44,7 +44,7 @@ const options = [
 export function DateRangeSelector() {
   const [range, setRange] = useQueryState(
     "range",
-    parseAsStringEnum(options.map((item) => item.label)).withDefault("ALL")
+    parseAsStringEnum(options.map((item) => item.label)).withDefault("7D")
   );
 
   return (
