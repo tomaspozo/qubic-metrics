@@ -1,11 +1,13 @@
+import { OpenSourceHistoryChart } from "@/components/open-source-history-chart";
+import { DateRangeSelector } from "@/components/date-range-selector";
 import { OpenSourceStats } from "@/components/open-source-stats";
-// import { DateRangeSelector } from "@/components/date-range-selector";
 
 export default function OpenSource() {
   return (
     <>
       <OpenSourceStats />
-      {/* <DateRangeSelector /> */}
+      <DateRangeSelector />
+      <OpenSourceHistoryChart />
     </>
   );
 }
