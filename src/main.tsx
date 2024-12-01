@@ -1,7 +1,7 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { Provider as ReduxProvider } from "react-redux";
-import { NuqsAdapter } from "nuqs/adapters/react";
+import { NuqsAdapter } from "nuqs/adapters/react-router";
 import { ThemeProvider } from "next-themes";
 import { Analytics } from "@vercel/analytics/react";
 
@@ -11,13 +11,13 @@ import { store } from "./api/store.ts";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <ReduxProvider store={store}>
-      <NuqsAdapter>
-        <ThemeProvider attribute="class" defaultTheme="dark">
+    <ThemeProvider attribute="class" defaultTheme="dark">
+      <ReduxProvider store={store}>
+        <NuqsAdapter>
           <App />
           <Analytics />
-        </ThemeProvider>
-      </NuqsAdapter>
-    </ReduxProvider>
+        </NuqsAdapter>
+      </ReduxProvider>
+    </ThemeProvider>
   </StrictMode>
 );
