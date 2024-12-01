@@ -1,3 +1,4 @@
+import { NavItem } from "./nav-item";
 import { ThemeSwitcher } from "./theme-switcher";
 
 export function TopBar() {
@@ -7,6 +8,8 @@ export function TopBar() {
         <span className="font-semibold">QubicMetrics</span>
         <div className="flex flex-1 items-center gap-2 justify-end">
           <nav className="flex items-center gap-0.5">
+            <NavItem href="/">Home</NavItem>
+            <NavItem href="/open-source">Open Source</NavItem>
             <ThemeSwitcher />
           </nav>
         </div>
