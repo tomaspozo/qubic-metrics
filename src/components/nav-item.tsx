@@ -1,6 +1,7 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 import { buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 export function NavItem({
   href,
@@ -10,14 +11,16 @@ export function NavItem({
   children: React.ReactNode;
 }) {
   return (
-    <Link
+    <NavLink
       to={href}
-      className={buttonVariants({
-        variant: "link",
-        className: "font-light",
-      })}
+      className={({ isActive }) =>
+        buttonVariants({
+          variant: "link",
+          className: cn("font-light", isActive && "underline"),
+        })
+      }
     >
       {children}
-    </Link>
+    </NavLink>
   );
 }
