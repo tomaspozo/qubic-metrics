@@ -1,5 +1,6 @@
-import { NavItem } from "./nav-item";
+import { Icons } from "./icons";
 import { ThemeSwitcher } from "./theme-switcher";
+import { Button } from "./ui/button";
 
 export function TopBar() {
   return (
@@ -8,8 +9,14 @@ export function TopBar() {
         <span className="font-semibold">QubicMetrics</span>
         <div className="flex flex-1 items-center gap-2 justify-end">
           <nav className="flex items-center gap-0.5">
-            <NavItem href="/">Home</NavItem>
-            <NavItem href="/open-source">Open Source</NavItem>
+            <a
+              href="https://github.com/tomaspozo/qubic-metrics"
+              target="_blank"
+            >
+              <Button variant="ghost" className="h-8 w-8 px-0">
+                <Icons.gitHub />
+              </Button>
+            </a>
             <ThemeSwitcher />
           </nav>
         </div>

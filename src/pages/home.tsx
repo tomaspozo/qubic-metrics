@@ -1,5 +1,7 @@
 import { DateRangeSelector } from "@/components/date-range-selector";
 import { HistoryChart } from "@/components/history-chart";
+import { OpenSourceHistoryChart } from "@/components/open-source-history-chart";
+import { OpenSourceStats } from "@/components/open-source-stats";
 import { ScoresHistoryCharts } from "@/components/scores-history-charts";
 import { SolutionsChart } from "@/components/solutions-chart";
 import { SolutionsHourChart } from "@/components/solutions-hour-chart";
@@ -14,6 +16,8 @@ export default function Home() {
         <SolutionsHourChart />
         <SolutionsChart />
       </div>
+      <OpenSourceStats />
+      <OpenSourceHistoryChart />
     </>
   );
 }

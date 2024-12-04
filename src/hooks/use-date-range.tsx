@@ -42,5 +42,5 @@ export const rangeOptions = [
 export const useDateRange = () =>
   useQueryState(
     "range",
-    parseAsStringEnum(rangeOptions.map((item) => item.label)).withDefault("7D")
+    parseAsStringEnum(rangeOptions.map((item) => item.label)).withDefault("30D")
   );
