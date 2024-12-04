@@ -8,10 +8,12 @@ export default function Home() {
   return (
     <>
       <DateRangeSelector />
-      <HistoryChart />
-      <ScoresHistoryCharts />
-      <SolutionsHourChart />
-      <SolutionsChart />
+      <div className="grid grid-cols-1 gap-6 w-full xl:grid-cols-2">
+        <HistoryChart />
+        <ScoresHistoryCharts />
+        <SolutionsHourChart />
+        <SolutionsChart />
+      </div>
     </>
   );
 }

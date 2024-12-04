@@ -1,50 +1,58 @@
-# React + TypeScript + Vite
+# QubicMetrics
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![QubicMetrics screenshot](public/cover.jpeg)
 
-Currently, two official plugins are available:
+QubicMetrics is a web application that provides historical insights and analytics for the Qubic ecosystem. The platform visualizes key metrics and statistics from the Qubic network.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- Historical data visualization of key Qubic metrics
+- Open source contribution statistics
+- Interactive dashboards and charts
+- Real-time data updates
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Tech Stack
 
-- Configure the top-level `parserOptions` property like this:
+- React 18 with TypeScript
+- Vite for build tooling and development
+- Tailwind CSS for styling
+- Shadcn/ui for UI components
+- Jotai for state management
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## Getting Started
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+### Prerequisites
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+- Node.js (v20 or higher recommended)
+- A Qubic Metrics API token. Get one [here](https://api.qubicmetrics.com)
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+### Environment Setup
+
+1. Clone the repository
+2. Copy the environment variables template:
+   ```bash
+   cp .env.example .env
+   ```
+3. Edit `.env` and add your Qubic Metrics API token
+
+### Installation
+
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+2. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+The application will be available at `http://localhost:5173`
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+MIT.
